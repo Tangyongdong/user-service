@@ -1,0 +1,17 @@
+server:
+  port: 9003
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  application:
+    name: user-service
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+        serviceId: config-server
+        enabled: true
+      label: master
+      profile: dev

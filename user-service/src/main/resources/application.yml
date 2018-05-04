@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${datasource.ip_port}/sale_user?useSSL=false&serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf-8
+    username: ${datasource.username}
+    password: ${datasource.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 1
+    maxActive: 5
+    minIdle: 1
+    maxWait: 60000
+    filters: stat,log4j,wall
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+  aop:
+    auto: ${aop.auto}
+
+mybatis:
+  typeAliasesPackage: com.tangyongdong.sale.user.domain.db
+  mapperLocations: classpath:mapper/*.xml
+  configuration:
+    cacheEnabled: true
+    useGeneratedKeys: true
+    defaultExecutorType: reuse
+    mapUnderscoreToCamelCase: true
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
