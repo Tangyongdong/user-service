@@ -5,23 +5,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+public class UserLogin {
 
     private String id;
 
-    private String token;
+    private String userId;
 
-    private String name;
-
-    private String phone;
-
-    private Integer gender;
+    private Date loginTime;
 
     private Integer status;
-
-    private Integer sysAdmin;
 }

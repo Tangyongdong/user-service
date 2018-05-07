@@ -45,5 +45,11 @@
                selectByExampleQueryId="false">
         </table>-->
 
+        <!--<table tableName="s_user_login" domainObjectName="UserLogin"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>-->
+
     </context>
 </generatorConfiguration>

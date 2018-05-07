@@ -1,5 +1,6 @@
 package com.tangyongdong.sale.user.config;
 
+
 import com.tangyongdong.sale.base.exception.ErrorCode;
 
 /**
@@ -9,8 +10,11 @@ import com.tangyongdong.sale.base.exception.ErrorCode;
 public enum BusinessErrorCode implements ErrorCode {
 
     SYSTEM_BUSY(1,"A0001","系统繁忙请稍后再试"),
-    PARAMS_ERROR(1,"B0001","参数异常"),
-    USER_NOT_FOUND(1,"C0001","未查询到用户信息");
+    MD5_SIGN_ERROR(2,"A0002","MD5加密失败"),
+    MD5_VERIFY_ERROR(2,"A0003","MD5验签失败"),
+    PARAMS_ERROR(2,"B0001","参数异常"),
+    USER_NOT_FOUND(2,"C0001","未查询到用户信息"),
+    USER_LOGIN_ERROR(2,"C0002","登录失败");
 
     private Integer errorStatus;
     private String errorCode;
@@ -24,16 +28,16 @@ public enum BusinessErrorCode implements ErrorCode {
 
     @Override
     public Integer getStatus() {
-        return null;
+        return this.errorStatus;
     }
 
     @Override
     public String getCode() {
-        return null;
+        return this.errorCode;
     }
 
     @Override
     public String getMessage() {
-        return null;
+        return this.errorMessage;
     }
 }

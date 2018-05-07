@@ -22,16 +22,16 @@ public enum BusinessErrorCode implements ErrorCode {
 
     @Override
     public Integer getStatus() {
-        return null;
+        return this.errorStatus;
     }
 
     @Override
     public String getCode() {
-        return null;
+        return this.errorCode;
     }
 
     @Override
     public String getMessage() {
-        return null;
+        return this.errorMessage;
     }
 }

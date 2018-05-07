@@ -20,6 +20,4 @@ public interface UserApi {
      */
     @RequestMapping(value = "/v1/all/login",method = RequestMethod.POST)
     CommonResponse<UserResponse> userLogin(@RequestParam("phone") String phone);
-
-
 }

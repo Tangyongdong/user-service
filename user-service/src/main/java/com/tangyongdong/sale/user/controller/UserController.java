@@ -7,13 +7,17 @@ import com.tangyongdong.sale.user.config.BusinessErrorCode;
 import com.tangyongdong.sale.user.response.UserResponse;
 import com.tangyongdong.sale.user.service.UserService;
 import com.tangyongdong.sale.user.util.JsoupUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author tangyongdong
  * @create 2018-05-04 18:44
  */
+@RestController
+@Slf4j
 public class UserController implements UserApi {
 
     @Autowired

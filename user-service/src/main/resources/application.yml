@@ -16,6 +16,14 @@ spring:
     testWhileIdle: true
   aop:
     auto: ${aop.auto}
+  redis:
+    host: ${redis.host}
+    port: ${redis.port}
+    password: ${redis.password}
+    pool:
+      max-idle: 300
+      max-active: 600
+      max-wait: 10000
 
 mybatis:
   typeAliasesPackage: com.tangyongdong.sale.user.domain.db

@@ -19,6 +19,6 @@ public class UserResponse {
     private String name;
     private String phone;
     private Integer gender;
-    private Integer admin;
+    private Integer sysAdmin;
     private String accessToken;
 }

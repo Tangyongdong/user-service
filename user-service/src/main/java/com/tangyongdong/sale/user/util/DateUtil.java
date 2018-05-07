@@ -37,6 +37,15 @@ public final class DateUtil {
     }
 
     /**
+     * 时间格式转化 date -> "yyyy-MM-dd HH:mm:ss"格式字符串
+     *
+     * @return
+     */
+    public static String date2Long(Date date) {
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
+    }
+
+    /**
      * 获取当前时间的 "yyyy-MM-dd HH:mm:ss"格式字符串
      *
      * @return
