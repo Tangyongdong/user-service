@@ -155,6 +155,19 @@
 			<version>${logstash-logback-encoder.version}</version>
 		</dependency>
 
+		<!-- xss过滤组件 -->
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
