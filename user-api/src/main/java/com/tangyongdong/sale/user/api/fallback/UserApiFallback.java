@@ -4,6 +4,7 @@ import com.tangyongdong.sale.base.exception.BusinessException;
 import com.tangyongdong.sale.base.response.CommonResponse;
 import com.tangyongdong.sale.user.api.UserApi;
 import com.tangyongdong.sale.user.config.BusinessErrorCode;
+import com.tangyongdong.sale.user.request.AccessTokenAuthRequest;
 import com.tangyongdong.sale.user.response.UserResponse;
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;
@@ -23,6 +24,12 @@ public class UserApiFallback implements FallbackFactory {
             public CommonResponse<UserResponse> userLogin(String phone) {
                 throw new BusinessException(BusinessErrorCode.SYSTEM_BUSY);
             }
+
+            @Override
+            public CommonResponse<Boolean> accessTokenAuth(AccessTokenAuthRequest request) {
+                throw new BusinessException(BusinessErrorCode.SYSTEM_BUSY);
+            }
+
         };
     }
 }

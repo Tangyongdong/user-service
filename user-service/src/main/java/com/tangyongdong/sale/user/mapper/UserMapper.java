@@ -2,8 +2,10 @@ package com.tangyongdong.sale.user.mapper;
 
 import com.tangyongdong.sale.user.domain.db.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 @Mapper
+@Repository
 public interface UserMapper {
 
     /**
@@ -61,4 +63,12 @@ public interface UserMapper {
      * @return
      */
     User selectByPhone(String phone);
+
+    /**
+     * 根据userId查询用户信息
+     *
+     * @param userToken
+     * @return
+     */
+    User selectByUserToken(String userToken);
 }

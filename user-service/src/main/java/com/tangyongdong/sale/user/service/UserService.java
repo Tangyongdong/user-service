@@ -15,4 +15,13 @@ public interface UserService {
      * @return
      */
     UserResponse userLogin(String phone);
+
+    /**
+     * 验证用户accessToken
+     *
+     * @param userToken
+     * @param accessToekn
+     * @return
+     */
+    Boolean accessTokenAuth(String userToken, String accessToekn);
 }

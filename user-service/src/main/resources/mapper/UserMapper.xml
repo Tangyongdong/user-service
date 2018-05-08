@@ -122,4 +122,12 @@
     where phone = #{phone,jdbcType=VARCHAR}
     and status = 1
   </select>
+
+  <select id="selectByUserToken" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from s_user
+    where token = #{userToken,jdbcType=VARCHAR}
+    and status = 1
+  </select>
 </mapper>

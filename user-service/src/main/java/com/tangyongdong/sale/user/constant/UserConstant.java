@@ -6,6 +6,6 @@ package com.tangyongdong.sale.user.constant;
  */
 public class UserConstant {
 
-    public static final String MD5_KEY = "ASDFGHJKL";
+    public static final String MD5_KEY = "QWERTYUIOPASDFGHJKLZXCVBNNM";
 
 }

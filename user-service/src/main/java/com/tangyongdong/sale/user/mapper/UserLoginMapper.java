@@ -2,8 +2,11 @@ package com.tangyongdong.sale.user.mapper;
 
 import com.tangyongdong.sale.user.domain.db.UserLogin;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Mapper
+@Repository
 public interface UserLoginMapper {
 
     /**
@@ -53,4 +56,11 @@ public interface UserLoginMapper {
      * @return
      */
     int updateByPrimaryKey(UserLogin record);
+
+    /**
+     * 根据userId查询用户最新登录信息
+     *
+     * @param userToken
+     */
+    UserLogin selectByUserId(String userToken);
 }

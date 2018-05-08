@@ -79,4 +79,13 @@
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from s_user_login
+    where user_id = #{userId,jdbcType=VARCHAR}
+    and status = 1
+    order by login_time desc
+    limit 0,1
+  </select>
 </mapper>

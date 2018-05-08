@@ -6,6 +6,7 @@ import com.tangyongdong.sale.user.constant.UserConstant;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 
 /**
  * @author tangyongdong
@@ -23,7 +24,7 @@ public class MD5Util {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] digest = md.digest(userId.getBytes());
-            return addsolt(digest);
+            return addSalt(digest);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
             throw new BusinessException(BusinessErrorCode.MD5_SIGN_ERROR);
@@ -40,7 +41,7 @@ public class MD5Util {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] digest = md.digest(token.concat(UserConstant.MD5_KEY).concat(dateStr).getBytes());
-            return addsolt(digest).toUpperCase();
+            return addSalt(digest).toUpperCase();
         } catch (NoSuchAlgorithmException   e) {
             e.printStackTrace();
             throw new BusinessException(BusinessErrorCode.MD5_SIGN_ERROR);
@@ -58,7 +59,7 @@ public class MD5Util {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] digest = md.digest(token.concat(UserConstant.MD5_KEY).concat(dateStr).getBytes());
-            String newSign = addsolt(digest);
+            String newSign = addSalt(digest);
             return sign.equalsIgnoreCase(newSign);
         } catch (NoSuchAlgorithmException   e) {
             e.printStackTrace();
@@ -66,7 +67,7 @@ public class MD5Util {
         }
     }
 
-    private static String addsolt(byte[] digest){
+    private static String addSalt(byte[] digest){
         StringBuffer buffer = new StringBuffer();
         for (byte b : digest) {
             int number = b & 0xff;
@@ -79,7 +80,7 @@ public class MD5Util {
         return buffer.toString();
     }
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         String token = getToken("178206638316978176");
         System.out.println(token);//9c3ee003863f4362284797f17b561e11
 
@@ -87,8 +88,8 @@ public class MD5Util {
         String accessToken = sign(token, dateStr);
         System.out.println(accessToken);//F755741BF9DB382BC370DD85199C17EB
 
-        Boolean verify = verify(accessToken, token, dateStr);
+        Boolean verify = verify("29CACFB98A719C7EBE0789A613CC5FD4", "65cc76a5faf0222e0aa675d460de839f", "2018-05-08 11:29:56");
         System.out.println(verify);//true
-    }*/
+    }
 
 }

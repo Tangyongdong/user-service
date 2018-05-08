@@ -14,7 +14,8 @@ public enum BusinessErrorCode implements ErrorCode {
     MD5_VERIFY_ERROR(2,"A0003","MD5验签失败"),
     PARAMS_ERROR(2,"B0001","参数异常"),
     USER_NOT_FOUND(2,"C0001","未查询到用户信息"),
-    USER_LOGIN_ERROR(2,"C0002","登录失败");
+    USER_LOGIN_ERROR(2,"C0002","登录失败"),
+    USER_NO_LOGIN(1,"C0003","用户未登录");
 
     private Integer errorStatus;
     private String errorCode;
