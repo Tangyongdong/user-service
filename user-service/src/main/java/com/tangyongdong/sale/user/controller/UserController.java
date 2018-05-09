@@ -38,15 +38,15 @@ public class UserController implements UserApi {
 
     @Override
     public CommonResponse<Boolean> accessTokenAuth(@RequestBody AccessTokenAuthRequest request) {
-        if(request == null){
+        if (request == null) {
             throw new BusinessException(BusinessErrorCode.PARAMS_ERROR);
         }
         String userToken = request.getUserToken();
-        String accessToekn = request.getAccessToken();
-        if(StringUtils.isEmpty(userToken) || StringUtils.isEmpty(accessToekn)){
+        String accessToken = request.getAccessToken();
+        if (StringUtils.isEmpty(userToken) || StringUtils.isEmpty(accessToken)) {
             throw new BusinessException(BusinessErrorCode.PARAMS_ERROR);
         }
 
-        return CommonResponse.success(userService.accessTokenAuth(userToken,accessToekn));
+        return CommonResponse.success(userService.accessTokenAuth(userToken, accessToken));
     }
 }

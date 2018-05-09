@@ -24,6 +24,12 @@ spring:
       max-idle: 300
       max-active: 600
       max-wait: 10000
+  rabbitmq:
+    host: ${rabbitmq.host}
+    port: ${rabbitmq.port}
+    username: ${rabbitmq.username}
+    password: ${rabbitmq.password}
+    virtual-host: ${rabbitmq.virtual.host}
 
 mybatis:
   typeAliasesPackage: com.tangyongdong.sale.user.domain.db

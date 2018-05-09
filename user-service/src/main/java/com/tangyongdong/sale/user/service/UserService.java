@@ -20,8 +20,8 @@ public interface UserService {
      * 验证用户accessToken
      *
      * @param userToken
-     * @param accessToekn
+     * @param accessToken
      * @return
      */
-    Boolean accessTokenAuth(String userToken, String accessToekn);
+    Boolean accessTokenAuth(String userToken, String accessToken);
 }
