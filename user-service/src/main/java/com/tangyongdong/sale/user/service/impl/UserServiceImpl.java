@@ -4,7 +4,6 @@ import com.tangyongdong.sale.base.exception.BusinessException;
 import com.tangyongdong.sale.user.config.BusinessErrorCode;
 import com.tangyongdong.sale.user.constant.DefualtStatusEnum;
 import com.tangyongdong.sale.user.constant.RedisConstant;
-import com.tangyongdong.sale.user.constant.UserConstant;
 import com.tangyongdong.sale.user.domain.db.User;
 import com.tangyongdong.sale.user.domain.db.UserLogin;
 import com.tangyongdong.sale.user.mapper.UserLoginMapper;
@@ -44,8 +43,8 @@ public class UserServiceImpl implements UserService {
     public UserResponse userLogin(String phone) {
         //1.查询用户信息
         User user = userMapper.selectByPhone(phone);
-        if(user == null){
-            log.info("user not found,phone:{}",phone);
+        if (user == null) {
+            log.info("user not found,phone:{}", phone);
             throw new BusinessException(BusinessErrorCode.USER_NOT_FOUND);
         }
 
@@ -58,15 +57,15 @@ public class UserServiceImpl implements UserService {
                 .loginTime(date)
                 .build();
         int count = userLoginMapper.insert(userLogin);
-        if(count != 1){
-            log.info("user login error,userId:{}",user.getId());
+        if (count != 1) {
+            log.info("user login error,userId:{}", user.getId());
             throw new BusinessException(BusinessErrorCode.USER_LOGIN_ERROR);
         }
 
         //3.生成accessToken并存redis 6小时
         String dateStr = DateUtil.date2Long(date);
         String accessToken = MD5Util.sign(user.getToken(), dateStr);
-        redisTemplate.opsForValue().set(RedisConstant.USER_ACCESS_TOKEN_KEY.concat(user.getToken()),accessToken,6L, TimeUnit.HOURS);
+        redisTemplate.opsForValue().set(RedisConstant.USER_ACCESS_TOKEN_KEY.concat(user.getToken()), accessToken, 6L, TimeUnit.HOURS);
 
         //4.返回
         UserResponse userResponse = UserResponse.builder()
@@ -78,13 +77,14 @@ public class UserServiceImpl implements UserService {
                 .sysAdmin(user.getSysAdmin())
                 .accessToken(accessToken)
                 .build();
+
         return userResponse;
     }
 
     @Override
     public Boolean accessTokenAuth(String userToken, String accessToken) {
         String trueAccessToken = redisTemplate.opsForValue().get(RedisConstant.USER_ACCESS_TOKEN_KEY.concat(userToken));
-        if(StringUtils.isEmpty(trueAccessToken) || trueAccessToken.equals(accessToken)){
+        if (StringUtils.isEmpty(trueAccessToken) || trueAccessToken.equals(accessToken)) {
             return Boolean.FALSE;
         }
         return Boolean.TRUE;

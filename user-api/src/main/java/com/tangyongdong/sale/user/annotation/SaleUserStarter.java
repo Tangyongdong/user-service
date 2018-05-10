@@ -1,5 +1,6 @@
 package com.tangyongdong.sale.user.annotation;
 
+import com.tangyongdong.sale.user.api.fallback.RabbitApiFallback;
 import com.tangyongdong.sale.user.api.fallback.UserApiFallback;
 import org.springframework.context.annotation.Import;
 
@@ -14,6 +15,6 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-@Import({FeignClientConfiguration.class, UserApiFallback.class})
+@Import({FeignClientConfiguration.class, UserApiFallback.class, RabbitApiFallback.class})
 public @interface SaleUserStarter {
 }
