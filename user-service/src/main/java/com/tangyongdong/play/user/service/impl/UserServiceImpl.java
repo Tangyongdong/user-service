@@ -87,7 +87,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean accessTokenAuth(String userToken, String accessToken) {
         String trueAccessToken = redisTemplate.opsForValue().get(RedisConstant.USER_ACCESS_TOKEN_KEY.concat(userToken));
-        if (StringUtils.isEmpty(trueAccessToken) || trueAccessToken.equals(accessToken)) {
+        if (StringUtils.isEmpty(trueAccessToken) || !trueAccessToken.equals(accessToken)) {
             return Boolean.FALSE;
         }
         return Boolean.TRUE;

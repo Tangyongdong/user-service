@@ -30,7 +30,7 @@ import java.util.List;
 @Slf4j
 public class ControllerAdvice {
 
-    @Pointcut("execution(public * com.tangyongdong.sale.user.controller.*.*(..))")
+    @Pointcut("execution(public * com.tangyongdong.play.user.controller.*.*(..))")
     public void expression() {
     }
 

@@ -14,6 +14,6 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-@Import({FeignClientConfiguration.class, UserApiFallback.class, RabbitApiFallback.class})
+@Import({FeignClientConfiguration.class, UserApiFallback.class})
 public @interface PlayUserStarter {
 }
