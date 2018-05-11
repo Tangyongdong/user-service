@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.tangyongdong.sale</groupId>
+	<groupId>com.tangyongdong.play</groupId>
 	<artifactId>user-service</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -30,21 +30,28 @@
 		<druid.version>1.0.11</druid.version>
 		<logstash-logback-encoder.version>4.7</logstash-logback-encoder.version>
 		<mybatis-spring-boot-starter.version>1.3.0</mybatis-spring-boot-starter.version>
-		<base.version>1.0.0-SNAPSHOT</base.version>
-		<user-api.version>1.0.0-SNAPSHOT</user-api.version>
+		<base-common.version>1.0.1-SNAPSHOT</base-common.version>
+		<user-api.version>1.0.1-SNAPSHOT</user-api.version>
+		<base-api.version>1.0.1-SNAPSHOT</base-api.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.tangyongdong.sale</groupId>
-			<artifactId>base</artifactId>
-			<version>${base.version}</version>
+			<groupId>com.tangyongdong</groupId>
+			<artifactId>base-common</artifactId>
+			<version>${base-common.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.tangyongdong.sale</groupId>
+			<groupId>com.tangyongdong.play</groupId>
 			<artifactId>user-api</artifactId>
 			<version>${user-api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.tangyongdong</groupId>
+			<artifactId>base-api</artifactId>
+			<version>${base-api.version}</version>
 		</dependency>
 
 		<dependency>

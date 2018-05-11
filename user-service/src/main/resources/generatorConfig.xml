@@ -14,7 +14,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/sale_user?useSSL=false&amp;serverTimezone=Hongkong&amp;useUnicode=true&amp;characterEncoding=utf-8"
+                        connectionURL="jdbc:mysql://localhost:3306/play_user?useSSL=false&amp;serverTimezone=Hongkong&amp;useUnicode=true&amp;characterEncoding=utf-8"
                         userId="root"
                         password="root1234"/>
 
@@ -22,7 +22,7 @@
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.tangyongdong.sale.user.domain.db"
+        <javaModelGenerator targetPackage="com.tangyongdong.play.user.domain.db"
                             targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
@@ -34,7 +34,7 @@
         </sqlMapGenerator>
 
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.tangyongdong.sale.user.mapper"
+                             targetPackage="com.tangyongdong.play.user.mapper"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>

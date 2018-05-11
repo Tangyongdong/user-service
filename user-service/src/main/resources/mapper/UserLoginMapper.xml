@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.tangyongdong.sale.user.mapper.UserLoginMapper" >
-  <resultMap id="BaseResultMap" type="com.tangyongdong.sale.user.domain.db.UserLogin" >
+<mapper namespace="com.tangyongdong.play.user.mapper.UserLoginMapper" >
+  <resultMap id="BaseResultMap" type="com.tangyongdong.play.user.domain.db.UserLogin" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="VARCHAR" />
     <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
@@ -20,13 +20,13 @@
     delete from s_user_login
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.tangyongdong.sale.user.domain.db.UserLogin" >
+  <insert id="insert" parameterType="com.tangyongdong.play.user.domain.db.UserLogin" >
     insert into s_user_login (id, user_id, login_time, 
       status)
     values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{loginTime,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.tangyongdong.sale.user.domain.db.UserLogin" >
+  <insert id="insertSelective" parameterType="com.tangyongdong.play.user.domain.db.UserLogin" >
     insert into s_user_login
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tangyongdong.sale.user.domain.db.UserLogin" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.tangyongdong.play.user.domain.db.UserLogin" >
     update s_user_login
     <set >
       <if test="userId != null" >
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.tangyongdong.sale.user.domain.db.UserLogin" >
+  <update id="updateByPrimaryKey" parameterType="com.tangyongdong.play.user.domain.db.UserLogin" >
     update s_user_login
     set user_id = #{userId,jdbcType=VARCHAR},
       login_time = #{loginTime,jdbcType=TIMESTAMP},
